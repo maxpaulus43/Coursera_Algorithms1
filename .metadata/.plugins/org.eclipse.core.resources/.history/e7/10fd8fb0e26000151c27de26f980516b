@@ -1,0 +1,42 @@
+package week3;
+
+public class MergeUp {
+
+	private static Comparable[] aux;
+	
+	private static void merge(Comparable[] a, int lo, int mid, int hi) {
+		int l = lo;
+		int m = mid;
+		
+		for (int i = lo; i < hi; i++) {			
+			if (l >= mid) 				aux[i] = a[m++];
+			else if (m >= hi) 			aux[i] = a[l++];
+			else if (less(a[l], a[m])) 	aux[i] = a[l++];
+			else 						aux[i] = a[m++];
+		}
+	}
+	
+	public static void sort(Comparable[] a) {
+		int N = a.length;
+		if (N <= 1) return;
+		
+		aux = new Comparable[N];
+		
+		// n = length of subarrays
+		for (int n = 1; n < N; n *= 2) {
+			//inner for loop increments by n (which is subarray length)
+			for (int i = 0; i < N; i += n) {
+				int lo = i; 
+				int mid = i + n / 2;
+				int hi = Math.min(i + n, N);
+				merge(a, lo, mid, hi);
+			}
+		}
+		
+		for (int i = 0; i < N; i++) { a[i] = aux[i]; }		
+	}
+	
+	private static boolean less(Comparable a, Comparable b) {
+		return a.compareTo(b) < 0;
+	}
+}

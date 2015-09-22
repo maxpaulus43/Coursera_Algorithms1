@@ -1,0 +1,38 @@
+package week3;
+
+public class MergeUp {
+
+	private static Comparable[] aux;
+	
+	private static void merge(Comparable[] a, int lo, int mid, int hi) {
+		int l = lo;
+		int m = mid;
+		
+		for (int i = lo; i < hi; i++) {
+			//if lo >= mid insert a[mid] and increment mid
+			//if mid >= hi incremement lo
+			//if a[lo] < a[mid] insert a[lo] and increment lo
+			//if a[mid] < a[lo] insert a[mid] and increment mid
+			
+			if (l >= mid) aux[i] = a[m++];
+			else if (m >= hi) aux[i] = a[l++];
+			else if 
+		}
+	}
+	
+	public static void sort(Comparable[] a) {
+		int N = a.length;
+		if (N <= 1) return;
+		
+		aux = new Comparable[N];
+		
+		//   sorting/merging stuff
+		
+		for (int i = 0; i < N; i++) { a[i] = aux[i]; }		
+	}
+	
+	private boolean less(Comparable a, Comparable b) {
+		return a.compareTo(b) < 0;
+	}
+	
+}

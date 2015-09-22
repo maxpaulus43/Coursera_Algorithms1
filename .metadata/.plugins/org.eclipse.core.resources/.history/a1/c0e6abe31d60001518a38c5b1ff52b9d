@@ -1,0 +1,14 @@
+package week3;
+
+public class MergeUp {
+
+	
+	public static void sort(Comparable[] a, int lo, int hi) {
+		
+	}
+	
+	public static void sort(Comparable[] a) {
+		
+	}
+	
+}
